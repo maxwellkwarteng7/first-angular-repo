@@ -15,10 +15,4 @@ export class ApiServiceService {
   getData(endpoint: string): Observable<apiObject> {
     return this.http.get<apiObject>(endpoint);
   }
-
-  // getDesignation(): Observable<apiObject> {
-  //   return this.http.get<apiObject>(
-  //     "https://freeapi.miniprojectideas.com/api/ClientStrive/GetAllDesignation"
-  //   );
-  // }
 }
