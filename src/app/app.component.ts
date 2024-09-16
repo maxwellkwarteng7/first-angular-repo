@@ -1,8 +1,8 @@
 import { Component } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
-import { DesignationComponent } from "./Components/designation/designation.component";
+import { DesignationComponent } from "./designation/designation.component";
 import { CommonModule } from "@angular/common";
-import { RoleComponent } from "./Components/designation/role/role.component";
+import { RoleComponent } from "./role/role.component";
 
 @Component({
   selector: "app-root",
