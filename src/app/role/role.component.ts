@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from "@angular/core";
 import { FormsModule } from "@angular/forms";
-import { ApiServiceService } from "../../../api-service.service";
-import { roleObject } from "../../../models/interface";
+import { ApiServiceService } from "../api-service.service";
+import { roleObject } from "../models/interface";
 import { CommonModule } from "@angular/common";
 
 @Component({

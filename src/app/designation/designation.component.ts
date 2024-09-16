@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from "@angular/core";
-import { ApiServiceService } from "../../api-service.service";
-import { designationObject } from "../../models/interface";
+import { ApiServiceService } from "../api-service.service";
+import { designationObject } from "../models/interface";
 import { CommonModule } from "@angular/common";
 
 @Component({
