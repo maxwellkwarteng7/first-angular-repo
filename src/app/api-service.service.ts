@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { apiObject } from "./models/interface";
@@ -15,10 +15,4 @@ export class ApiServiceService {
   getData(endpoint: string): Observable<apiObject> {
     return this.http.get<apiObject>(endpoint);
   }
-
-  // getDesignation(): Observable<apiObject> {
-  //   return this.http.get<apiObject>(
-  //     "https://freeapi.miniprojectideas.com/api/ClientStrive/GetAllDesignation"
-  //   );
-  // }
 }
