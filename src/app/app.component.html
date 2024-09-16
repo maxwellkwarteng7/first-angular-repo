@@ -1,0 +1,27 @@
+<!-- the role component  -->
+
+<!-- creating a button to toggle the components  -->
+
+<div class="button-container">
+  <button
+    (click)="updateToRole()"
+    [ngClass]="currentComponent == 'role' ? 'active' : ''"
+  >
+    role
+  </button>
+  <button
+    (click)="updateToDesignation()"
+    [ngClass]="currentComponent == 'designation' ? 'active' : ''"
+  >
+    Designation
+  </button>
+</div>
+
+<div *ngIf="currentComponent == 'role'">
+  <app-role></app-role>
+</div>
+<div *ngIf="currentComponent == 'designation'">
+  <app-designation></app-designation>
+</div>
+<!-- this is the root to render other components  -->
+<router-outlet />

@@ -1,0 +1,26 @@
+.table-container{
+    max-width: 60% ; 
+    margin: 5rem auto; 
+    box-shadow:  0.1rem 0.1rem .5rem rgba(0 , 0 , 0 , 0.15);
+    padding-block : 2rem; 
+
+    table{
+        width: 100% ;
+
+            // background : rgb(15, 146, 80) ;  
+            th{
+                width: 50%; 
+            }
+
+            tr {
+                border : .5px solid red  ;
+            }
+       
+            td{
+                padding : 1rem ; 
+                text-align: center;
+                border-bottom:  1px solid black;
+            }
+        
+    }
+}

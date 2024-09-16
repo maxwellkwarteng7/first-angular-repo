@@ -1,0 +1,15 @@
+<!-- making a table to hold our  -->
+<div class="table-container">
+  <table>
+    <thead>
+      <th>No .</th>
+      <th>Role</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of rolepayload; let no = index">
+        <td>{{ no + 1 }}</td>
+        <td>{{ item.role }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

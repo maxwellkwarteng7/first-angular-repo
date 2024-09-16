@@ -1,0 +1,19 @@
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  button {
+    border: none;
+    padding: 1rem 1.3rem;
+    background: black;
+    color: white;
+    border-radius: 7px;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  .active {
+    color : white ; 
+    background : rgb(6, 152, 82); 
+  }
