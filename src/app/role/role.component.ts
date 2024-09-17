@@ -20,19 +20,15 @@ export class RoleComponent implements OnInit {
   // injecting the dependency
   roleData = inject(ApiServiceService);
   ngOnInit(): void {
-    this.roleData
-      .getData(
-        "https://freeapi.miniprojectideas.com/api/ClientStrive/GetAllRoles"
-      )
-      .subscribe(
-        (res) => {
-          this.rolepayload = res.data;
-          this.isLoading = false;
-        },
-        (error) => {
-          console.log(error);
-          this.isLoading = false;
-        }
-      );
+    this.roleData.getData("GetAllRoles").subscribe(
+      (res) => {
+        this.rolepayload = res.data;
+        this.isLoading = false;
+      },
+      (error) => {
+        console.log(error);
+        this.isLoading = false;
+      }
+    );
   }
 }
