@@ -2,6 +2,11 @@
 
 <div class="main-container">
   <!-- this is where the card will come -->
+  @if(isLoading){
+  <div class="loading">
+    <p>Loading ...</p>
+  </div>
+  }@else {
   <div class="card-container" *ngFor="let data of designationPayload">
     <p>Designation : {{ data.designation }}</p>
     <div class="buttons">
@@ -9,4 +14,5 @@
       <button class="edit">Edit</button>
     </div>
   </div>
+  }
 </div>

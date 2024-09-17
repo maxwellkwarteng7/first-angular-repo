@@ -1,27 +1,28 @@
 <!-- the role component  -->
 
 <!-- creating a button to toggle the components  -->
+<nav>
+  <div class="logo">
+    <a href="">Client Strive</a>
+  </div>
+  <div class="links">
+    <ul>
+      <li>
+        <a routerLink="/master" [routerLinkActive]="'current-tab'">Master</a>
+      </li>
+      <li>
+        <a routerLink="/employee" [routerLinkActive]="'current-tab'"
+          >Employee</a
+        >
+      </li>
+      <li>
+        <a [routerLinkActive]="'current-tab'" routerLink="/client">Client</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!--  -->
 
-<div class="button-container">
-  <button
-    (click)="updateToRole()"
-    [ngClass]="currentComponent == 'role' ? 'active' : ''"
-  >
-    role
-  </button>
-  <button
-    (click)="updateToDesignation()"
-    [ngClass]="currentComponent == 'designation' ? 'active' : ''"
-  >
-    Designation
-  </button>
+<div>
+  <router-outlet />
 </div>
-
-<div *ngIf="currentComponent == 'role'">
-  <app-role></app-role>
-</div>
-<div *ngIf="currentComponent == 'designation'">
-  <app-designation></app-designation>
-</div>
-<!-- this is the root to render other components  -->
-<router-outlet />
