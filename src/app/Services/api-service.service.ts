@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { apiObject } from "../models/interface";
+import { environment } from "../../environments/environment";
 
 @Injectable({
   providedIn: "root",
@@ -13,6 +14,6 @@ export class ApiServiceService {
 
   // a function to fetch the data
   getData(endpoint: string): Observable<apiObject> {
-    return this.http.get<apiObject>(endpoint);
+    return this.http.get<apiObject>(environment.API_URL + endpoint);
   }
 }
