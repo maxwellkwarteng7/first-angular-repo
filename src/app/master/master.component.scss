@@ -1,0 +1,21 @@
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap : 1rem; 
+    margin-block : 1rem; 
+  }
+  button {
+    border: none;
+    padding: .4rem .8rem;
+    background: black;
+    color: white;
+    border-radius: 7px;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+
+  .active {
+    color : white ; 
+    background : rgb(6, 152, 82); 
+  }

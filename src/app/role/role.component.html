@@ -1,5 +1,10 @@
 <!-- making a table to hold our  -->
 <div class="table-container">
+  @if (isLoading) {
+  <div class="loading">
+    <p>Loading ...</p>
+  </div>
+  }@else {
   <table>
     <thead>
       <th>No .</th>
@@ -12,4 +17,5 @@
       </tr>
     </tbody>
   </table>
+  }
 </div>

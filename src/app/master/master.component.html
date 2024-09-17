@@ -1,0 +1,21 @@
+<div class="button-container">
+  <button
+    (click)="updateToRole()"
+    [ngClass]="currentComponent == 'role' ? 'active' : ''"
+  >
+    Role
+  </button>
+  <button
+    (click)="updateToDesignation()"
+    [ngClass]="currentComponent == 'designation' ? 'active' : ''"
+  >
+    Designation
+  </button>
+</div>
+
+<div *ngIf="currentComponent == 'role'">
+  <app-role></app-role>
+</div>
+<div *ngIf="currentComponent == 'designation'">
+  <app-designation></app-designation>
+</div>
