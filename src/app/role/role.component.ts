@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from "@angular/core";
 import { FormsModule } from "@angular/forms";
-import { ApiServiceService } from "../../../api-service.service";
-import { roleObject } from "../../../models/interface";
+import { ApiServiceService } from "../Services/api-service.service";
+import { roleObject } from "../models/interface";
 import { CommonModule } from "@angular/common";
 
 @Component({
@@ -14,6 +14,9 @@ import { CommonModule } from "@angular/common";
 export class RoleComponent implements OnInit {
   // the role payload
   rolepayload: roleObject[] = [];
+
+  // loading variable
+  isLoading: boolean = true;
   // injecting the dependency
   roleData = inject(ApiServiceService);
   ngOnInit(): void {
@@ -24,9 +27,11 @@ export class RoleComponent implements OnInit {
       .subscribe(
         (res) => {
           this.rolepayload = res.data;
+          this.isLoading = false;
         },
         (error) => {
           console.log(error);
+          this.isLoading = false;
         }
       );
   }

@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+:root {
+  --primary: #f22872;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-block: 3rem;
+}
