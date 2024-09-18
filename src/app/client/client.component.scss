@@ -32,6 +32,19 @@
         padding-block: 1rem;
         text-align: center;
       }
+      button {
+        border: none;
+        padding: 0.3rem 0.5rem;
+        border-radius: 2rem;
+        color: white;
+      }
+      .edit {
+        background: blue;
+      }
+
+      .delete {
+        background: red;
+      }
     }
   }
 }
@@ -75,7 +88,11 @@
     }
 
     .save {
-      background: green;
+      background: rgb(21, 171, 99);
+    }
+
+    .saving {
+      background: gray;
     }
   }
 }

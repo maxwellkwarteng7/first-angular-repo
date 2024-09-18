@@ -13,3 +13,11 @@ export interface designationObject {
   designationId: number;
   designation: string;
 }
+
+export enum Icon {
+  success = "success",
+  warning = "warning",
+  error = "error",
+  info = "info",
+  question = "question",
+}

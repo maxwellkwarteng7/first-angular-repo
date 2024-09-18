@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { apiObject } from "../models/interface";
 import { environment } from "../../environments/environment";
+import { Client } from "../models/class";
 
 @Injectable({
   providedIn: "root",
@@ -15,5 +16,16 @@ export class ApiServiceService {
   // a function to fetch the data
   getData(endpoint: string): Observable<apiObject> {
     return this.http.get<apiObject>(environment.API_URL + endpoint);
+  }
+
+  addClientData(endpoint: string, payload: Client): Observable<apiObject> {
+    return this.http.post<apiObject>(environment.API_URL + endpoint, payload);
+  }
+
+  //deleting the the client
+  deleteClient(endpoint: string, id: number): Observable<apiObject> {
+    return this.http.delete<apiObject>(
+      environment.API_URL + endpoint + `?ClientId=${id}`
+    );
   }
 }

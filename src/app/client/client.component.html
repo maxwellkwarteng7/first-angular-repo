@@ -3,6 +3,11 @@
     <div class="table-head">
       <h3>Client List</h3>
     </div>
+    @if(stillLoading){
+    <div class="loading">
+      <p>Loading ...</p>
+    </div>
+    }@else {
     <table>
       <thead>
         <th>Sr No</th>
@@ -10,17 +15,32 @@
         <th>Company Name</th>
         <th>Contact No</th>
         <th>City</th>
+        <th>Edit</th>
+        <th>Delete</th>
       </thead>
       <tbody>
+        @for (item of clientPayload; track $index) {
         <tr>
-          <td>1</td>
-          <td>Developer</td>
-          <td>Developer</td>
-          <td>Developer</td>
-          <td>Developer</td>
+          <td>{{ $index + 1 }}</td>
+          <td>{{ item.contactPersonName }}</td>
+          <td>{{ item.companyName }}</td>
+          <td>{{ item.contactNo }}</td>
+          <td>{{ item.city }}</td>
+          <td>
+            <button class="edit" (click)="UpdateExistingClient(item)">
+              Edit
+            </button>
+          </td>
+          <td class="">
+            <button class="delete" (click)="deleteClient(item.clientId)">
+              Delete
+            </button>
+          </td>
         </tr>
+        }
       </tbody>
     </table>
+    }
   </div>
   <div class="form-container">
     <div class="form-head">
@@ -29,46 +49,99 @@
     <form action="">
       <div class="wrapper">
         <label for="name">Person Name : </label>
-        <input type="text" id="name" />
+        <input
+          name="name"
+          type="text"
+          id="name"
+          [(ngModel)]="clientObject.contactPersonName"
+        />
       </div>
       <div class="wrapper">
         <label for="company">CompanyName : </label>
-        <input type="text" id="company" />
+        <input
+          name="companyName"
+          type="text"
+          id="company"
+          [(ngModel)]="clientObject.companyName"
+        />
       </div>
       <div class="wrapper">
         <label for="contact">Contact No : </label>
-        <input type="number" id="contact" />
+        <input
+          name="contact"
+          type="number"
+          id="contact"
+          [(ngModel)]="clientObject.contactNo"
+        />
       </div>
       <div class="wrapper">
         <label for="city">City : </label>
-        <input type="text" id="city" />
+        <input
+          type="text"
+          id="city"
+          name="city"
+          [(ngModel)]="clientObject.city"
+        />
       </div>
       <div class="wrapper">
         <label for="state">State : </label>
-        <input type="text" id="state" />
+        <input
+          name="state"
+          type="text"
+          id="state"
+          [(ngModel)]="clientObject.state"
+        />
       </div>
       <div class="wrapper">
         <label for="pin"> Pin code : </label>
-        <input type="number" id="pin" />
+        <input
+          name="pin"
+          type="number"
+          id="pin"
+          [(ngModel)]="clientObject.pincode"
+        />
       </div>
       <div class="wrapper">
         <label for="address">Address : </label>
-        <textarea name="" id="address"></textarea>
+        <textarea
+          name="address"
+          id="address"
+          [(ngModel)]="clientObject.address"
+        ></textarea>
       </div>
       <div class="wrapper">
         <label for="strength">Employee strength : </label>
-        <input type="text" id="strength" />
+        <input
+          name="employeeStrength"
+          type="number"
+          id="strength"
+          [(ngModel)]="clientObject.employeeStrength"
+        />
       </div>
       <div class="wrapper">
         <label for="gst">GstNo : </label>
-        <input type="text" id="gst" />
+        <input
+          name="gstNo"
+          type="text"
+          id="gst"
+          [(ngModel)]="clientObject.gstNo"
+        />
       </div>
       <div class="wrapper">
         <label for="reg">RegNO : </label>
-        <input type="text" id="reg" />
+        <input
+          name="regNo"
+          type="text"
+          id="reg"
+          [(ngModel)]="clientObject.regNo"
+        />
       </div>
       <div class="submit">
-        <button class="save">Submit</button>
+        @if(!buttonLoading){
+        <button class="save" (click)="saveClient()">{{ buttonName }}</button>
+        }@else {
+        <button class="saving" disabled>Submitting...</button>
+        }
         <button>Reset</button>
       </div>
     </form>
