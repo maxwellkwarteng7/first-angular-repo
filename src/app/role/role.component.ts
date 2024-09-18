@@ -17,10 +17,11 @@ export class RoleComponent implements OnInit {
 
   // loading variable
   isLoading: boolean = true;
+
   // injecting the dependency
-  roleData = inject(ApiServiceService);
+  roleApiCall = inject(ApiServiceService);
   ngOnInit(): void {
-    this.roleData.getData("GetAllRoles").subscribe(
+    this.roleApiCall.getData("GetAllRoles").subscribe(
       (res) => {
         this.rolepayload = res.data;
         this.isLoading = false;
