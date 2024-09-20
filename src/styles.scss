@@ -17,3 +17,102 @@
   justify-content: center;
   margin-block: 3rem;
 }
+
+// the styles here
+
+.boxes-container {
+  width: 100%;
+  padding: 1rem 3rem;
+  display: flex;
+}
+
+.table-container {
+  width: 60%;
+  padding-right: 2rem;
+
+  .table-head {
+    padding-block: 1rem;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 0.5px solid gray;
+    thead {
+      background: gray;
+      th {
+        color: white;
+        text-align: center;
+        padding-block: 1rem;
+      }
+    }
+    tr {
+      border-bottom: 1px solid gray;
+      td {
+        padding-block: 1rem;
+        text-align: center;
+      }
+      button {
+        border: none;
+        padding: 0.3rem 0.5rem;
+        border-radius: 2rem;
+        color: white;
+      }
+      .edit {
+        background: blue;
+      }
+
+      .delete {
+        background: red;
+      }
+    }
+  }
+}
+
+.form-container {
+  width: 40%;
+  .form-head {
+    padding-block: 0.7rem;
+  }
+
+  .wrapper {
+    padding-block: 0.5rem;
+
+    label {
+      width: 35%;
+      display: inline-block;
+    }
+
+    input {
+      width: 65%;
+      padding: 0.5rem 0.7rem;
+      outline: none;
+    }
+    textarea {
+      outline: none;
+    }
+  }
+
+  .submit {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    button {
+      padding: 0.5rem 0.7rem;
+      border-radius: 3rem;
+      background: black;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .save {
+      background: rgb(21, 171, 99);
+    }
+
+    .saving {
+      background: gray;
+    }
+  }
+}
