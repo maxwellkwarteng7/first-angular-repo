@@ -1,0 +1,149 @@
+<div class="boxes-container">
+  <div class="table-container">
+    <div class="table-head">
+      <h3>Client Project List</h3>
+    </div>
+    @if(stillLoading == true){
+    <div class="loading">
+      <p>Loading ...</p>
+    </div>
+    }@else {
+    <table>
+      <thead>
+        <th>Sr No</th>
+        <th>Project Name</th>
+        <th>Client Name</th>
+        <th>Employee</th>
+        <th>Employee Designation</th>
+      </thead>
+      <tbody>
+        @for (item of clientProject; track $index) {
+        <tr>
+          <td>{{ $index + 1 }}</td>
+          <td>{{ item.projectName }}</td>
+          <td>{{ item.clientName }}</td>
+          <td>{{ item.empName }}</td>
+          <td>{{ item.empDesignation }}</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+    }
+  </div>
+  <div class="form-container">
+    <div class="form-head">
+      <h3>New Project</h3>
+    </div>
+    <form action="" [formGroup]="projectForm">
+      <div class="wrapper">
+        <label for="name">Project Name : </label>
+        <input
+          name="name"
+          type="text"
+          id="name"
+          formControlName="projectName"
+          required
+        />
+      </div>
+      <div class="wrapper">
+        <label for="company">Start Date : </label>
+        <input
+          name="companyName"
+          type="date"
+          id="company"
+          formControlName="startDate"
+          required
+        />
+      </div>
+      <div class="wrapper">
+        <label for="contact">Expected End date : </label>
+        <input
+          name="contact"
+          type="date"
+          id="contact"
+          formControlName="expectedEndDate"
+          required
+        />
+      </div>
+      <div class="wrapper">
+        <label for="city">Contact Name : </label>
+        <input
+          type="text"
+          id="city"
+          name="city"
+          formControlName="contactPerson"
+          required
+        />
+      </div>
+      <div class="wrapper">
+        <label for="state">Contact Mobile : </label>
+        <input
+          name="state"
+          type="text"
+          id="state"
+          formControlName="contactPersonContactNo"
+          required
+        />
+      </div>
+      <div class="wrapper">
+        <label for="pin"> Contact Email : </label>
+        <input
+          name="pin"
+          type="email"
+          id="pin"
+          formControlName="contactPersonEmailId"
+          required
+        />
+      </div>
+      <div class="wrapper">
+        <label for="pin"> Total Employee Count: </label>
+        <input
+          name="pin"
+          type="number"
+          id="pin"
+          required
+          formControlName="totalEmpWorking"
+        />
+      </div>
+      <div class="wrapper">
+        <label for="pin"> Project Cost: </label>
+        <input
+          name="pin"
+          type="number"
+          id="pin"
+          formControlName="projectCost"
+          required
+        />
+      </div>
+      <div class="wrapper">
+        <label for="address">Project Description : </label>
+        <textarea
+          name="address"
+          id="address"
+          formControlName="projectDetails"
+          required
+        ></textarea>
+      </div>
+      <div class="wrapper">
+        <label for="strength">Select Client : </label>
+        <select required id="strength" formControlName="clientId">
+          <option value="" selected>select a client</option>
+        </select>
+      </div>
+      <div class="wrapper">
+        <label for="strength">Select Employee : </label>
+        <select required id="strength" formControlName="clientId">
+          <option value="" selected>select a employee</option>
+        </select>
+      </div>
+
+      <div class="submit">
+        @if(!buttonLoading){
+        <button class="save">{{ submitButton }}</button>
+        }@else {
+        <button class="saving" disabled>Saving...</button>
+        }
+      </div>
+    </form>
+  </div>
+</div>

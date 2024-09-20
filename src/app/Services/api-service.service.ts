@@ -28,4 +28,9 @@ export class ApiServiceService {
       environment.API_URL + endpoint + `?ClientId=${id}`
     );
   }
+
+  //fetching all client projects
+  getAllClientProjects(endpoint: string): Observable<apiObject> {
+    return this.http.get<apiObject>(environment.API_URL + endpoint);
+  }
 }
