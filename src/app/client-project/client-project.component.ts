@@ -9,11 +9,12 @@ import {
 } from "../models/interface";
 import { NotificationService } from "../Services/notification.service";
 import { Client } from "../models/class";
+import { CommonModule } from "@angular/common";
 
 @Component({
   selector: "app-client-project",
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: "./client-project.component.html",
   styleUrl: "./client-project.component.scss",
 })
@@ -33,6 +34,8 @@ export class ClientProjectComponent implements OnInit {
   // fetching the data
   ngOnInit(): void {
     this.getClientProjects();
+    this.getClientDetails();
+    this.getEmployeeData();
   }
 
   // function to fetch the client projects
@@ -70,16 +73,26 @@ export class ClientProjectComponent implements OnInit {
   });
 
   saveClientProject() {
+    this.buttonLoading = true;
     let formValues = this.projectForm.value;
+    debugger;
     this.service
-      .addNewClientProject("AddUpdateClient", formValues)
-      .subscribe((res) => {
-        this.notification.showAlert(
-          "Client project added successfully",
-          "",
-          Icon.success
-        );
-      });
+      .addNewClientProject("AddUpdateClientProject", formValues)
+      .subscribe(
+        (res) => {
+          this.getClientProjects();
+          this.notification.showAlert(
+            "Client project added successfully",
+            "",
+            Icon.success
+          );
+          this.buttonLoading = false;
+        },
+        (error) => {
+          this.buttonLoading = false;
+          console.log(error);
+        }
+      );
   }
 
   // fetching the client and employee to a load into the .html
