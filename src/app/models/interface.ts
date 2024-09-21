@@ -34,3 +34,12 @@ export interface clientProject {
   clientName: string;
   clientProjectId: number;
 }
+
+export interface employeeInterface {
+  empName: string;
+  empId: number;
+  empCode: string;
+  empEmailId: string;
+  empDesignation: string;
+  role: string;
+}

@@ -33,4 +33,12 @@ export class ApiServiceService {
   getAllClientProjects(endpoint: string): Observable<apiObject> {
     return this.http.get<apiObject>(environment.API_URL + endpoint);
   }
+
+  // posting all the projects
+  addNewClientProject(
+    endpoint: string,
+    payload: Client
+  ): Observable<apiObject> {
+    return this.http.post<apiObject>(environment.API_URL + endpoint, payload);
+  }
 }

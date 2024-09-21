@@ -1,8 +1,14 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup, ReactiveFormsModule } from "@angular/forms";
 import { ApiServiceService } from "../Services/api-service.service";
-import { clientProject, Icon } from "../models/interface";
+import {
+  apiObject,
+  clientProject,
+  employeeInterface,
+  Icon,
+} from "../models/interface";
 import { NotificationService } from "../Services/notification.service";
+import { Client } from "../models/class";
 
 @Component({
   selector: "app-client-project",
@@ -15,8 +21,9 @@ export class ClientProjectComponent implements OnInit {
   submitButton: string = "Save Project";
   buttonLoading: boolean = false;
   stillLoading: boolean = false;
-
+  clientDetails: Client[] = [];
   clientProject: clientProject[] = [];
+  employeeData: employeeInterface[] = [];
 
   constructor(
     private service: ApiServiceService,
@@ -65,7 +72,7 @@ export class ClientProjectComponent implements OnInit {
   saveClientProject() {
     let formValues = this.projectForm.value;
     this.service
-      .addClientData("AddUpdateClient", formValues)
+      .addNewClientProject("AddUpdateClient", formValues)
       .subscribe((res) => {
         this.notification.showAlert(
           "Client project added successfully",
@@ -73,5 +80,24 @@ export class ClientProjectComponent implements OnInit {
           Icon.success
         );
       });
+  }
+
+  // fetching the client and employee to a load into the .html
+  getClientDetails() {
+    this.service.getData("GetAllClients").subscribe(
+      (res) => {
+        this.clientDetails = res.data;
+      },
+      (error) => console.log(error.message)
+    );
+  }
+
+  getEmployeeData() {
+    this.service.getData("GetAllEmployee").subscribe(
+      (res: apiObject) => {
+        this.employeeData = res.data;
+      },
+      (error) => console.log(error.message)
+    );
   }
 }
