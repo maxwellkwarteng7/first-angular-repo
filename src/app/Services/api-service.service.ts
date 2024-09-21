@@ -1,7 +1,11 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { apiObject } from "../models/interface";
+import {
+  apiObject,
+  clientProject,
+  clientProjectPayloadInterface,
+} from "../models/interface";
 import { environment } from "../../environments/environment";
 import { Client } from "../models/class";
 
@@ -32,5 +36,13 @@ export class ApiServiceService {
   //fetching all client projects
   getAllClientProjects(endpoint: string): Observable<apiObject> {
     return this.http.get<apiObject>(environment.API_URL + endpoint);
+  }
+
+  // posting all the projects
+  addNewClientProject(
+    endpoint: string,
+    payload: clientProjectPayloadInterface
+  ): Observable<apiObject> {
+    return this.http.post<apiObject>(environment.API_URL + endpoint, payload);
   }
 }

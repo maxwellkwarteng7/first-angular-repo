@@ -34,3 +34,28 @@ export interface clientProject {
   clientName: string;
   clientProjectId: number;
 }
+
+export interface employeeInterface {
+  empName: string;
+  empId: number;
+  empCode: string;
+  empEmailId: string;
+  empDesignation: string;
+  role: string;
+}
+
+export interface clientProjectPayloadInterface {
+  clientProjectId: number;
+  projectName: string;
+  startDate: string;
+  expectedEndDate: string;
+  leadByEmpId: number;
+  completedDate: string;
+  contactPerson: string;
+  contactPersonContactNo: string;
+  totalEmpWorking: number;
+  projectCost: number;
+  projectDetails: string;
+  contactPersonEmailId: string;
+  clientId: number;
+}

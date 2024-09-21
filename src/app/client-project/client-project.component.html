@@ -127,19 +127,27 @@
       <div class="wrapper">
         <label for="strength">Select Client : </label>
         <select required id="strength" formControlName="clientId">
-          <option value="" selected>select a client</option>
+          @for (item of clientDetails; track $index) {
+          <option value="{{ item.clientId }}">
+            {{ item.companyName }}
+          </option>
+          }
         </select>
       </div>
       <div class="wrapper">
         <label for="strength">Select Employee : </label>
         <select required id="strength" formControlName="clientId">
-          <option value="" selected>select a employee</option>
+          <option value="{{ item.empId }}" *ngFor="let item of employeeData">
+            {{ item.empName }}
+          </option>
         </select>
       </div>
 
       <div class="submit">
         @if(!buttonLoading){
-        <button class="save">{{ submitButton }}</button>
+        <button class="save" (click)="saveClientProject()">
+          {{ submitButton }}
+        </button>
         }@else {
         <button class="saving" disabled>Saving...</button>
         }
