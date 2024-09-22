@@ -1,7 +1,7 @@
 <div class="boxes-container">
   <div class="table-container">
     <div class="table-head">
-      <h3>Client Project List</h3>
+      <h3>Client Project List - {{ currentDate | date }}</h3>
     </div>
     @if(stillLoading == true){
     <div class="loading">
@@ -15,15 +15,17 @@
         <th>Client Name</th>
         <th>Employee</th>
         <th>Employee Designation</th>
+        <th>Project Cost</th>
       </thead>
       <tbody>
         @for (item of clientProject; track $index) {
         <tr>
           <td>{{ $index + 1 }}</td>
-          <td>{{ item.projectName }}</td>
+          <td>{{ item.projectName | uppercase }}</td>
           <td>{{ item.clientName }}</td>
           <td>{{ item.empName }}</td>
           <td>{{ item.empDesignation }}</td>
+          <td>{{ cost | currency }}</td>
         </tr>
         }
       </tbody>
@@ -136,10 +138,10 @@
       </div>
       <div class="wrapper">
         <label for="strength">Select Employee : </label>
-        <select required id="strength" formControlName="clientId">
-          <option value="{{ item.empId }}" *ngFor="let item of employeeData">
-            {{ item.empName }}
-          </option>
+        <select required id="strength" formControlName="leadByEmpId">
+          @for (item of employeeData; track $index) {
+          <option value="{{ item.empId }}">{{ item.empName }}</option>
+          }
         </select>
       </div>
 
@@ -154,4 +156,12 @@
       </div>
     </form>
   </div>
+</div>
+
+<div>
+  <ul>
+    @for (item of userList$ |async; track $index) {
+    <li>{{ item.username }}</li>
+    }
+  </ul>
 </div>

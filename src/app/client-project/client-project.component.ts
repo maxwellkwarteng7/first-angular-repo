@@ -9,12 +9,26 @@ import {
 } from "../models/interface";
 import { NotificationService } from "../Services/notification.service";
 import { Client } from "../models/class";
-import { CommonModule } from "@angular/common";
+import {
+  AsyncPipe,
+  CommonModule,
+  CurrencyPipe,
+  DatePipe,
+  UpperCasePipe,
+} from "@angular/common";
+import { Observable } from "rxjs";
 
 @Component({
   selector: "app-client-project",
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [
+    ReactiveFormsModule,
+    CommonModule,
+    UpperCasePipe,
+    DatePipe,
+    CurrencyPipe,
+    AsyncPipe
+  ],
   templateUrl: "./client-project.component.html",
   styleUrl: "./client-project.component.scss",
 })
@@ -25,6 +39,11 @@ export class ClientProjectComponent implements OnInit {
   clientDetails: Client[] = [];
   clientProject: clientProject[] = [];
   employeeData: employeeInterface[] = [];
+  currentDate: Date = new Date();
+  cost: number = 45;
+
+  // creating an observable to display data directly in the .html using async pipe to subscribe to it
+  userList$: Observable<any> = new Observable<any>; 
 
   constructor(
     private service: ApiServiceService,
@@ -36,6 +55,7 @@ export class ClientProjectComponent implements OnInit {
     this.getClientProjects();
     this.getClientDetails();
     this.getEmployeeData();
+    this.userList$ = this.service.getAllUsers(); 
   }
 
   // function to fetch the client projects
@@ -75,17 +95,11 @@ export class ClientProjectComponent implements OnInit {
   saveClientProject() {
     this.buttonLoading = true;
     let formValues = this.projectForm.value;
-    debugger;
     this.service
       .addNewClientProject("AddUpdateClientProject", formValues)
       .subscribe(
         (res) => {
-          this.getClientProjects();
-          this.notification.showAlert(
-            "Client project added successfully",
-            "",
-            Icon.success
-          );
+          this.notification.showAlert("Client Project added", "", Icon.success);
           this.buttonLoading = false;
         },
         (error) => {
