@@ -45,4 +45,9 @@ export class ApiServiceService {
   ): Observable<apiObject> {
     return this.http.post<apiObject>(environment.API_URL + endpoint, payload);
   }
+
+  // getting all users to display in the .html directly
+  getAllUsers(): Observable<any> {
+    return this.http.get("https://jsonplaceholder.typicode.com/users");
+  }
 }
