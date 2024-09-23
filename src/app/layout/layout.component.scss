@@ -5,6 +5,7 @@ nav {
   box-shadow: 0rem 0rem 0.5rem rgba(0, 0, 0, 0.17);
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 3rem;
   padding-inline: 3rem;
 
@@ -22,19 +23,29 @@ nav {
       display: flex;
       align-items: center;
       gap: 2rem;
+
+      li {
+        list-style: none;
+
+        a {
+          text-decoration: none;
+          color: black;
+          transition: color 0.2s ease-in-out;
+        }
+        .current-tab {
+          color: var(--primary);
+        }
+      }
     }
+  }
 
-    li {
-      list-style: none;
-
-      a {
-        text-decoration: none;
-        color: black;
-        transition: color 0.2s ease-in-out;
-      }
-      .current-tab {
-        color: var(--primary);
-      }
+  .logout {
+    button {
+      padding: 0.4rem 0.5rem;
+      border: none;
+      color: white;
+      background: black;
+      cursor: pointer;
     }
   }
 }

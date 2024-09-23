@@ -1,5 +1,10 @@
-import { Component } from "@angular/core";
-import { RouterLink, RouterLinkActive, RouterOutlet } from "@angular/router";
+import { Component, inject } from "@angular/core";
+import {
+  Router,
+  RouterLink,
+  RouterLinkActive,
+  RouterOutlet,
+} from "@angular/router";
 
 @Component({
   selector: "app-layout",
@@ -8,4 +13,14 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from "@angular/router";
   templateUrl: "./layout.component.html",
   styleUrl: "./layout.component.scss",
 })
-export class LayoutComponent {}
+export class LayoutComponent {
+  //creating a instance of the router class
+
+  router = inject(Router);
+
+  handleLogout() {
+    // clearing the token
+    localStorage.removeItem("token");
+    this.router.navigateByUrl("/login");
+  }
+}
