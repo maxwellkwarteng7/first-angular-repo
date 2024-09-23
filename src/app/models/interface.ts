@@ -59,3 +59,8 @@ export interface clientProjectPayloadInterface {
   contactPersonEmailId: string;
   clientId: number;
 }
+
+export interface loginDetails {
+  username: string;
+  password: string;
+}

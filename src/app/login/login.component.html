@@ -5,7 +5,12 @@
   <form action="">
     <div class="form-element">
       <label for="username">User Name</label>
-      <input type="text" id="username" />
+      <input
+        [(ngModel)]="credentials.username"
+        type="text"
+        id="username"
+        name="username"
+      />
     </div>
 
     <div class="form-element">
@@ -15,11 +20,16 @@
           [className]="type() == 'password' ? 'fas fa-eye-slash' : 'fas fa-eye'"
         ></i>
       </span>
-      <input [type]="type()" id="password" />
+      <input
+        [(ngModel)]="credentials.password"
+        [type]="type()"
+        id="password"
+        name="password"
+      />
     </div>
 
     <div class="form-element button">
-      <button class="btn" type="submit">LOGIN</button>
+      <button (click)="handleSubmit()" class="btn" type="submit">LOGIN</button>
     </div>
   </form>
 </div>

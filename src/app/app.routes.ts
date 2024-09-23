@@ -5,6 +5,7 @@ import { MasterComponent } from "./master/master.component";
 import { ClientProjectComponent } from "./client-project/client-project.component";
 import { LoginComponent } from "./login/login.component";
 import { LayoutComponent } from "./layout/layout.component";
+import { authGuard } from "./auth.guard";
 
 export const routes: Routes = [
   {
@@ -19,6 +20,7 @@ export const routes: Routes = [
   {
     path: "",
     component: LayoutComponent,
+    canActivate: [authGuard],
     children: [
       {
         path: "employee",
