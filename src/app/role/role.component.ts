@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from "@angular/core";
+import { Component, inject, OnInit, signal, Signal } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { ApiServiceService } from "../Services/api-service.service";
 import { roleObject } from "../models/interface";
@@ -12,8 +12,8 @@ import { CommonModule } from "@angular/common";
   styleUrl: "./role.component.scss",
 })
 export class RoleComponent implements OnInit {
-  // the role payload
-  rolepayload: roleObject[] = [];
+  // the data
+  roleData = signal<roleObject[]>([]);
 
   // loading variable
   isLoading: boolean = true;
@@ -23,7 +23,7 @@ export class RoleComponent implements OnInit {
   ngOnInit(): void {
     this.roleApiCall.getData("GetAllRoles").subscribe(
       (res) => {
-        this.rolepayload = res.data;
+        this.roleData.set(res.data);
         this.isLoading = false;
       },
       (error) => {

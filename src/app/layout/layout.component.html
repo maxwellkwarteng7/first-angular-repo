@@ -1,0 +1,27 @@
+<nav>
+  <div class="logo">
+    <a href="">Client Strive</a>
+  </div>
+  <div class="links">
+    <ul>
+      <li>
+        <a routerLink="/master" [routerLinkActive]="'current-tab'">Master</a>
+      </li>
+      <li>
+        <a routerLink="/employee" [routerLinkActive]="'current-tab'"
+          >Employee</a
+        >
+      </li>
+      <li>
+        <a [routerLinkActive]="'current-tab'" routerLink="/client">Client</a>
+      </li>
+      <li>
+        <a [routerLinkActive]="'current-tab'" routerLink="/client-project"
+          >Client Project</a
+        >
+      </li>
+    </ul>
+  </div>
+</nav>
+<!--  -->
+<router-outlet></router-outlet>

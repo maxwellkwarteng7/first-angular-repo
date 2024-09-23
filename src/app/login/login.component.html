@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="form-header">
+    <h3>Login</h3>
+  </div>
+  <form action="">
+    <div class="form-element">
+      <label for="username">User Name</label>
+      <input type="text" id="username" />
+    </div>
+
+    <div class="form-element">
+      <label for="password">Password</label>
+      <span (click)="changeProp()" class="password-toggle-icon">
+        <i
+          [className]="type() == 'password' ? 'fas fa-eye-slash' : 'fas fa-eye'"
+        ></i>
+      </span>
+      <input [type]="type()" id="password" />
+    </div>
+
+    <div class="form-element button">
+      <button class="btn" type="submit">LOGIN</button>
+    </div>
+  </form>
+</div>
+<div class="button-container">
+  <button class="first-button"></button>
+  <button class="second-button"></button>
+</div>

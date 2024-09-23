@@ -1,0 +1,87 @@
+.container {
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  max-width: 32rem;
+  margin: 10em auto;
+  padding: 3em;
+  border-radius: 0.5rem;
+  box-shadow: 0.4rem 0.4rem 2rem rgba(0, 0, 0, 0.45);
+}
+.form-header {
+  text-align: center;
+  padding-block: 2em;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+label {
+  display: block;
+  padding-bottom: 0.1rem;
+}
+
+input {
+  width: 100%;
+  padding: 0.2rem;
+  border: none;
+  background: transparent;
+  border-bottom: 0.1rem solid white;
+  color: white;
+  outline: none;
+}
+
+.form-element {
+  padding: 1em;
+  position: relative;
+}
+
+.button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  color: white;
+  background: #31a664;
+  border: none;
+  font-size: 1rem;
+  border-radius: 0.2rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.form-element span {
+  position: absolute;
+  right: 5%;
+  cursor: pointer;
+}
+
+.button-container {
+  background: linear-gradient(
+    to left bottom,
+    #df1f2d,
+    #b11313,
+    #2b3784,
+    #447bbe
+  );
+  width: 5rem;
+  height: 5rem;
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 50%;
+}
+
+.button-container button {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
