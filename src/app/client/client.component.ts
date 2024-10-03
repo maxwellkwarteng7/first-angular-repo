@@ -108,8 +108,8 @@ export class ClientComponent implements OnInit {
   }
 
   // update the client
-  UpdateExistingClient(data: Client) {
+  UpdateExistingClient(item: Client) {
     this.buttonName = "Update Client";
-    this.clientObject = data;
+    this.clientObject = item;
   }
 }
