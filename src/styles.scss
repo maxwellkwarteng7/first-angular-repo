@@ -116,3 +116,13 @@
     }
   }
 }
+
+#nprogress .bar {
+  color : white ; 
+  background : yellow ; 
+}
+
+#nprogress .spinner-icon {
+  border-top-color: #4caf50; /* Change the spinner's top border color */
+  border-left-color: #4caf50;
+}

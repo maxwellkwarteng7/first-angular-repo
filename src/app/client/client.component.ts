@@ -4,11 +4,14 @@ import { Client } from "../models/class";
 import { FormsModule } from "@angular/forms";
 import { NotificationService } from "../Services/notification.service";
 import { Icon } from "../models/interface";
+import * as progress  from 'nprogress'; 
+
+
 
 @Component({
   selector: "app-client",
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule ],
   templateUrl: "./client.component.html",
   styleUrl: "./client.component.scss",
 })
@@ -32,24 +35,34 @@ export class ClientComponent implements OnInit {
 
   constructor(
     private clientData: ApiServiceService,
-    private notification: NotificationService
-  ) {}
+    private notification: NotificationService, 
+
+  ) { }
+  
 
   ngOnInit(): void {
     this.getAllCleint();
   }
 
   getAllCleint() {
-    this.clientData.getData("GetAllClients").subscribe(
-      (res) => {
-        this.clientPayload = res.data;
-        this.stillLoading = false;
-      },
-      (error) => {
-        console.log(error);
-        this.stillLoading = false;
-      }
-    );
+   
+      this.clientData.getData("GetAllClients").subscribe(
+        (res) => {
+          this.clientPayload = res.data;
+          this.stillLoading = false;
+        },
+        (error) => {
+          console.log(error);
+          this.stillLoading = false;
+        }
+      );
+  }
+
+  showTheProgressBar() {
+    progress.start(); 
+    setTimeout(() => {
+      progress.done(); 
+    }, 5000);
   }
 
   updateClient() {
